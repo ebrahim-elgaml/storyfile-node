@@ -5,7 +5,7 @@ const config = require('../config');
 const Client = require('node-rest-client').Client;
 const client = new Client();
 
-cron.schedule('5 * * * * *', () => {
+cron.schedule('* * * 1 * *', () => {
 	console.log("start")
 	Answer.find({
 					created_at: { $gt: moment().subtract(1,'days')}
@@ -29,7 +29,7 @@ cron.schedule('5 * * * * *', () => {
 					}
 				})
 });
- 
+
 const formatBody = answers => answers.map( a => extractTranscript(a))
 
 const extractTranscript = answer => {

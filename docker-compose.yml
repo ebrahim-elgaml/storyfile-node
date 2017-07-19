@@ -7,10 +7,8 @@ services:
       - "3000:3000"
     links:
       - mongo
-      - ai
+    restart: on-failure
   mongo:
     image: mongo
   ai:
     image: medo/aimock
-    ports:
-      - "5555:5555"

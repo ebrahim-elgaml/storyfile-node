@@ -29,12 +29,12 @@ const create = (req, res) => {
 
 		    req.files.file.mv(filePath, err => {
 			    if (err) return handleRejection(res, files, err);
-			 	
+
 			 	ffmpeg.getAudioFile(filePath).then( audio => {
 			 		files.push(audio);
 			 		waston.recognize(audio).then( transcript =>  {
 			 			console.log(transcript);
-					    handleAcceptance(res, files, transcript, question, {transcript, files});
+					    handleAcceptance(res, files, transcript, question, {transcript});
 					}, error => handleRejection(res, files, error)
 					)
 			 	})
@@ -64,9 +64,6 @@ const handleAcceptance = (res, files, transcript, question, body) => {
 								  	  });
 	    	answer.save( err => {
 	    		if(err) console.log(err);
-	    		console.log(question)
-	    		console.log(answer)
-	    		console.log(answer._question)
 			});
 			ffmpeg.cleanFiles(files);
 		}, error => {

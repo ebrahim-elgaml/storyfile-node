@@ -2,7 +2,9 @@
 
 [Task link](https://www.evernote.com/shard/s107/sh/06d7648d-fc09-40b2-918a-e6e2b827ab64/c8f76ecddb5440d2)
 
-#### docker image: eelgaml/story-file
+#### How to run:
+* git clone
+* docker-compose up
 
 
 ### endpoints
@@ -179,9 +181,5 @@ response:
 ```
 status: 201
 {
-    "data": {
-        "videoId": 96,
-        "transcription": "bla bla",
-        "videoUrl": "https://storyfilestage.com:7070/video/96"
-    }
+    "transcript": "my niece Chas \nand I'm trying to communicate with the spirit \nthe person who died in this very spot \ncan you tell me your name "
 }
